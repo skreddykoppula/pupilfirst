@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>User Validation</title>
+        <script type="text/javascript">
+            function validate()
+            {
+                var n = document.getElementById("name").value;
+                var em = document.getElementById("email").value;
+                var pwd=document.getElementById("password").value;
+                var userinput = document.getElementById("dob").value;  
+                var dob = new Date(userinput); 
+                var month_diff = Date.now() - dob.getTime();
+                var age_dt = new Date(month_diff); 
+                var year = age_dt.getUTCFullYear();
+                var age = Math.abs(year - 1970);
+                if (age>=18 && age<=55)
+                {
+                    alert("DONE");
+                    return true;
+                }
+                else
+                {
+                    alert("Age is invalid! Age should be between 18 and 55.");
+                }
+            }
+        </script>
+    </head>
+    <body bgcolor="antiquewhite">
+        <center>
+            <h1>Form Validation</h1>
+            <form>
+                <table>
+                    <tr>
+                        <input type="text" id="name" placeholder="Name">
+                    </tr>
+                    <br><br>
+                    <tr>
+                        <input type="email" id="email" placeholder="Email">
+                    </tr>
+                    <br><br>
+                    <tr>
+                        <input type="password" id="password" placeholder="Password">
+                    </tr>
+                    <br><br>
+                    <tr>
+                        <input type="date" id="dob" placeholder="DateofBirth">
+                    </tr>
+                    <br><br>
+                    <tr>
+                        <input type="submit" onclick="return validate()" value="Submit">
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </body>
+</html>
